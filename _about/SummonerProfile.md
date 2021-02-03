@@ -9,7 +9,7 @@ Perfil do Invocador
  - Meu (IN)(https://www.linkedin.com/in/renanlima12/)
 **Qual sua IDE favorita e por que:**   
  - Visual Studio Code
- <p>É umA ide leve, rápida e fácil de configurar</p>
+ <p>É uma ide leve, rápida e fácil de configurar</p>
 
 **GULP, GRUNT?**
  - GULP 
