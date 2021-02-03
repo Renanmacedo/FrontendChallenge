@@ -1,0 +1,65 @@
+<div class="sm-flex sm-align-center">
+    <div class="sm-flex sm-flex-column" style="flex: none;">
+        <ng-container *ngFor="let team of tournament.teams">
+            <div class="sm-flex sm-align-center">
+                    <div class="sm-team-container">
+                        <div class="sm-flex sm-flex-column">
+                            <ng-container *ngFor="let key of team">
+                            <div class="team-item sm-flex">
+                                <div class="team-item-title sm-flex sm-align-center">
+                                    <p>{{key.name}}</p>
+                                </div>
+                                <div class="end-arrow sm-flex sm-align-center sm-justify-center">
+                                    {{key.points}}
+                                </div>
+                            </div> <!-- team -->
+                        </ng-container>
+                        </div>
+                    </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="sm-team-container sm-margin-left-40" >
+        <div class="last-qualification-key">
+            <ng-container *ngFor="let item of [].constructor(quantityQualification); index as i">
+            <div class="team-item sm-flex" [ngClass]="{'last-item-key' : i % 2 !== 0}">
+                <div class="team-item-title sm-flex sm-align-center">
+                    <p>{{getValueQualification(i, 'name')}}</p>
+                </div>
+                <div class="end-arrow sm-flex sm-align-center sm-justify-center">
+                    {{getValueQualification(i, 'points')}}
+                </div>
+            </div> <!-- team -->
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="sm-team-container sm-margin-left-40" >
+        <div class="last-round-key">
+            <ng-container *ngFor="let item of tournament.qualification; index as i;">
+            <div class="team-item sm-flex" [ngClass]="{'last-item-key' : i % 2 !== 0}">
+                <div class="team-item-title sm-flex sm-align-center">
+                    <p>{{getValueSemi(i, 'name')}}</p>
+                </div>
+                <div class="end-arrow sm-flex sm-align-center sm-justify-center">
+                    {{getValueSemi(i, 'points')}}
+                </div>
+            </div> <!-- team -->
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="sm-team-container sm-margin-left-40" *ngIf="hasTeams">
+        <div class="champion-item-key">
+            <div class="team-item sm-flex">
+                <div class="team-item-title sm-flex sm-align-center">
+                    <p>{{getValueChampion('name')}}</p>
+                </div>
+                <div class="end-arrow sm-flex sm-align-center sm-justify-center">
+                    {{getValueChampion('points')}}
+                </div>
+            </div> <!-- team -->
+        </div>
+
+    </div>
+</div>

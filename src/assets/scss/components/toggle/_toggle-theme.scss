@@ -1,0 +1,19 @@
+@mixin toggle-switch-theme($theme) {
+ 
+    $primary: map-get($theme, primary);
+    
+    .sm-toggle-switch {
+
+        background: #ccc;
+        &:before {
+            background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+        }
+        .sm-toggle:hover &:before {
+            
+            background: linear-gradient(to bottom, #fff 0%,#fff 100%);
+        }
+        .sm-toggle-checkbox:checked + & {
+            background:  sm-color($primary);
+        }
+    }
+}

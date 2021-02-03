@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~material-icons/css/material-icons.css";
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import "./assets/scss/theme/modern.scss";
+
+
+$theme: sm-ligth-theme(sm-theming($sm-blue-aqua));
+
+@include sm-core-theme($theme);
+

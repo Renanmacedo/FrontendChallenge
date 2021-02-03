@@ -1,0 +1,48 @@
+
+
+
+@mixin sidemenu-color($color, $option: null) {
+    // applay option color
+    @if($option == null) {
+        background: sm-color($color);
+        color: contrast-color(sm-color($color));
+    }@else {
+        background: sm-color($color, $option);
+        color: contrast-color(sm-color($color, $option));
+    }
+}
+
+
+@mixin  sm-sidemenu-theme($theme) {
+
+    $foreground:  map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+
+    .sm-sidemenu {
+        .sm-sidemenu-aside .sm-sidemenu-inner {
+            @include sidemenu-color($background, sidemenu);
+        }
+
+        // apply theme if color is specific
+        &.sm-primary {
+            .sm-sidemenu-aside .sm-sidemenu-inner {
+                @include sidemenu-color($primary);
+            }
+        }
+    }
+    .sm-sidemenu-inner.sm-primary {
+        &::-webkit-scrollbar-thumb {
+            background: sm-color($primary);
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    }
+    .sm-backdrop-sidemenu {
+      background-color: rgba(0,0,0,.37);
+    }
+    .sm-overlay-container {
+        background: rgba(0,0,0,.19);
+    }
+}

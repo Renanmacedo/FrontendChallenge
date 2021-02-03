@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "paths": {
+      "@summoners-components/*": [ "app/shared/components/*"],
+      "@summoners-app/*": [ "app/*"],
+      "@summoners-shared/*": ["app/shared/*"],
+      "@summoners-core/*": ["app/core/*"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+
+
+@mixin sm-fields-typography($config) {
+    .sm-form-field-error {
+        font: {
+            family: sm-get-font-family($config);
+            size: sm-get-font-size($config, body-1);
+            weight: sm-get-font-weight($config, body-1);
+        }
+    }
+}

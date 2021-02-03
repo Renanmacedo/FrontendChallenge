@@ -1,0 +1,52 @@
+
+.sm-select-trigger {
+    padding: .12em;
+}
+.sm-select { 
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    margin-top: -0.3449em;
+}
+.sm-select-value {
+    display: table-cell;
+    min-width: 0;
+    width: 100%;
+
+
+}
+.sm-form-field-type-select {
+    &:not(.sm-form-field-disabled) .sm-form-field-flex {
+        cursor: pointer;
+    }
+}
+.sm-select-value-text {
+    padding: 0 .4356em;
+}
+.sm-select-arrow-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    .sm-select-arrow {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid;
+        margin: 0 5px;
+    }
+}
+.sm-select-panel-wrap {
+ 
+    flex-basis: 100%;
+}
+.sm-select-panel {
+
+    background: #fff;
+    padding-top: 0;
+    padding-bottom: 0; 
+    max-height: 254px;
+    border-radius: 5px; 
+    overflow: scroll;
+    @include sm-elevation;
+
+}

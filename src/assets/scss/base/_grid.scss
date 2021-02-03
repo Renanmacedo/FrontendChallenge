@@ -1,0 +1,86 @@
+
+$grid_cols: 12;
+$sm-grid-sm: 576;
+$sm-grid-md: 768;
+$sm-grid-lg: 992;
+$sm-grid-xl: 1562;
+$sm-grid-xg: 2600;
+
+$map-grid-props: (
+    '': (min: 0, max: 0 )
+    ,'-sm': ( min: $sm-grid-sm, max: $sm-grid-md )
+    ,'-md': ( min: $sm-grid-md, max: $sm-grid-lg )
+    ,'-lg': ( min: $sm-grid-lg, max: $sm-grid-xl )
+    ,'-xl': ( min: $sm-grid-xl, max: $sm-grid-xg )
+);
+
+%sm-grid-row-base {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap; 
+} 
+%sm-grid-column-base {
+    display: flex;
+    flex-direction: column;
+}
+@mixin create-classes-grid($modifier, $grid-cols, $breakpoint) {
+    @include create-grid-media($breakpoint) {
+        @for $i from 1 through $grid-cols {
+            @if($modifier == '') {
+                $modifier: '-xs';
+            }
+            &-col-#{$modifier}-offset-0 {
+                margin-left: 0;
+                padding: 10px;
+
+            }
+
+            &-col#{$modifier}-#{$i} {
+                flex-basis: (100 / ( $grid-cols / $i )) * 1%;
+                width: (100 / ( $grid-cols / $i )) * 1%;
+                padding: 10px;
+            }
+
+            &-col#{$modifier}-offset-#{$i} {
+                margin-left: (100 / ($grid-cols / $i )) * 1%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            &-col#{$modifier}-offsetY-#{$i} {
+                margin-top: (100 / ($grid-cols / $i )) * 1%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        } 
+    }
+}
+
+.sm-grid {
+    
+    margin: 0;
+    box-sizing: border-box;
+    padding: 5px;
+    &-fluid {
+        max-width: 100%;
+    }
+    &-row {
+        @extend %sm-grid-row-base;
+    }
+    &-row-center {
+        justify-content: center;
+        align-items: center;
+    }
+    &-column {
+        @extend %sm-grid-column-base;
+    }
+}
+.sm {
+    @each $modifier, $breakpoint in $map-grid-props {
+        @include create-classes-grid($modifier, $grid_cols, $breakpoint);
+    }   
+}
+   
+
+
+
+

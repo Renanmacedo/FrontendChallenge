@@ -1,0 +1,163 @@
+
+
+// ref @link{https://material.io/design/color/the-color-system.html#tools-for-picking-colors}
+// colors material design
+$sm-gray: (
+    50: #f9f9f9,
+    100: #f4f4f4,
+    200: #ececec,
+    300: #dddddd,
+    400: #bababa,
+    500: #9a9a9a,
+    600: #727272,
+    700: #5e5e5e,
+    800: #3f3f3f,
+    900: #1e1e1e,
+    custom: #5F5C6B,
+    custom-2: #8C8A97
+);
+$sm-green: (
+    50:#e8f5e9,
+    100: #c8e6c9,
+    200: #a5d6a7,
+    300: #81c784,
+    400: #66bb6a,
+    500: #4caf50,
+    600: #43a047,
+    700: #388e3c,
+    800: #2E7D32,
+    900: #1B5E20,
+    constract: (
+        A100: #b9f6ca,
+        A200: #69f0ae,
+        A400: #00e676,
+        A700: #00c853
+    )
+);
+$sm-black: (
+    50: #f5f5f5,
+    100: #e9e9e9,
+    200: #d9d9d9,
+    300: #c4c4c4,
+    400: #9d9d9d,
+    500: #7b7b7b,
+    600: #555555,
+    700: #434343,
+    800: #262626,
+    900: #000000
+
+);
+
+$sm-orange: (
+    50: #fff3e1,
+    100: #ffe0b4,
+    200: #ffcc84,
+    300: #ffb754,
+    400: #ffa732,
+    500: #ff981b,
+    600: #ff8d1a,
+    700: #f97d19,
+    800: #f26d17,
+    900: #e85315
+);
+$sm-blue: (
+    50: #e7eaf2,
+    100: #c1cbdf,
+    200: #9aaaca,
+    300: #7389b4,
+    400: #546fa5,
+    500: #335797,
+    600: #2c4f8f,
+    700: #234683,
+    800: #1c3c76,
+    900: #122c5f
+);
+$sm-yellow-orange: (
+    50: #FFFDE7,
+    100: #fffac2,
+    200: #fff699,
+    300: #fff16e,
+    400: #fdec4a,
+    500: #fae71f,
+    600: #ffdc27,
+    700: #ffc41e,
+    800: #ffab14,
+    900: #ff8001
+);
+
+$sm-red: (
+    50: #FFEBEE,
+    100: #FFCDD2,
+    200: #EF9A9A,
+    300: #E57373,
+    400: #EF5350,
+    500: #F44336,
+    600: #E53935,
+    700: #D32F2F,
+    800: #C62828,
+    900: #B71C1C
+);
+$sm-purple: (
+    50: #efe5fd,
+    100: #d4bff9,
+    200: #b794f6,
+    300: #9965f4,
+    400: #7e3ff2,
+    500: #6002ee,
+    600: #5300e8,
+    700: #3d00e0,
+    800: #1c00db,
+    900: #0000d6
+);
+$sm-blue-aqua: (
+    50: #dff2f7,
+    100: #23A4CE,
+    200: #7ac8e0,
+    300: #49b2d4,
+    400: #23a3ce,
+    500: #0094c8,
+    600: #0088ba,
+    700: #0076a8,
+    800: #006595,
+    900: #004777,
+ 
+
+); 
+$sm-theme-light-background: (
+    default: black,
+    card: white,
+    sidemenu: white,
+    submenu: white,
+    dialog: white,
+    header: white,
+    link-button: map-get($sm-gray, 300),
+    hovered: map-get($sm-gray, 300),
+    disabled-button: map-get($sm-gray, 300),
+    focused-button: map-get($sm-gray, 400)
+);
+
+$sm-theme-light-foreground: (
+    default: map-get($sm-black, 900),
+    elevation: map-get($sm-black, 900),
+    text: map-get($sm-black, 900),
+    icon: map-get($sm-black, 800),
+    base: black,
+    card: white,
+    checkbox: map-get($sm-gray, custom)
+);
+$sm-theme-dark-background: (
+    default: black,
+    card: map-get($sm-gray, 500),
+    sidemenu: map-get($sm-black, 500),
+    dialog: map-get($sm-black, 500),
+    header: map-get($sm-black, 500),
+    link-button: map-get($sm-black, 300)
+);
+
+$sm-theme-dark-foreground: (
+    default: #fff,
+    elevation: map-get($sm-gray, 600),
+    text: #fff,
+    icon: #fff,
+    base: white
+);

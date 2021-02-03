@@ -1,0 +1,18 @@
+<sm-header color="primary"></sm-header>
+<sm-sidemenu-container>
+
+  <sm-sidemenu #side [position]="'push'" >
+    <div SmSideContentInfo>
+      <div class="sm-content-information sm-margin-bottom-2">
+        <h2 *ngIf="side.open" class="sm-margin-right-1">Summoners</h2>
+        <img src="assets/images/icon.png" alt="icon"/>
+      </div>
+    </div>
+
+    <sm-nav-menu [sidemenu]="side" [items]="menuItems"></sm-nav-menu>
+  </sm-sidemenu>
+  <sm-sidemenu-content>
+    <router-outlet></router-outlet>
+  </sm-sidemenu-content>
+</sm-sidemenu-container>
+

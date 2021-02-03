@@ -1,0 +1,25 @@
+
+<aside class="sm-sidemenu-aside"
+    [style.top.px]="checkPosition"
+    [class.sm-sidemenu-open-mobile]="mobile && _open"
+    [class.sm-sidemenu-close-mobile]="mobile && _open == false"
+    [class.sm-sidemenu-animation-enter]="!fixed && _inHouver"
+    [class.sm-sidemenu-animation-out]="!fixed && !_inHouver"
+    [class.sm-sidemenu-close]="!_open && !mobile"
+    [ngClass]="classes">
+    <aside 
+        class="sm-sidemenu-inner" >
+        <ng-content select="sm-side-content-info,[SmSideContentInfo]"></ng-content>
+        <div class="sm-sidemenu-inner-wrapper">
+            <div class="sm-sidemenu-items" [class.sm-sidemenu-close]="open == false">
+                <ng-content></ng-content>
+            </div>
+        </div>
+
+        <div class="sm-flex sm-justify-end sm-sidmenu-footer">
+            <button sm-button sm-icon-button (click)="toggle()">
+                <sm-icon [@rotateAnimation]="getState">double_arrow</sm-icon>
+            </button>
+        </div>
+    </aside>
+</aside>

@@ -1,0 +1,28 @@
+
+
+@mixin sm-menu-theme($theme) {
+
+    $background: map-get($theme, background);
+    $forenground: map-get($theme, foreground);
+    $primary: map-get($theme,primary);
+    $secondary: map-get($theme, secondary);
+
+    .sm-menu-item {
+        background-color: transparent;
+        color: sm-color($forenground, text);
+        &:hover  {
+            background: sm-color($background, hovered);
+        }
+    }
+}
+
+@mixin sm-menu-typography($config) {
+ 
+    .sm-menu-item {
+        font: {
+            family: sm-get-font-family($config);
+            size: sm-get-font-size($config, body-1);
+            weight: sm-get-font-weight($config, body-1);
+        }
+    }
+}

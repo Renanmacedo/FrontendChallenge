@@ -1,0 +1,57 @@
+
+%sm-nav-menu-border {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+%sm-nav-menu-base {
+    margin: 0 .29em;
+}
+
+@mixin sm-nav-menu-theme($theme) {
+
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+    $secondary: map-get($theme, secondary);
+    $gray: map-get($theme,sm-gray);
+    .sm-nav-menu.sm-primary .sm-nav-menu-item:hover {
+      sm-icon
+      ,.sm-nav-menu-item-label {
+        color: sm-color($gray, custom);
+      }
+    }
+    .sm-nav-menu .sm-nav-menu-item:hover {
+      sm-icon
+      ,.sm-nav-menu-item-label {
+        color:  sm-color($primary);
+      }
+    }
+    .sm-nav-menu .sm-nav-menu-item.sm-navitem-active {
+        sm-icon
+        ,.sm-nav-menu-item-label {
+          color:  sm-color($primary);
+        }
+    }
+    .sm-nav-menu.sm-primary .sm-nav-menu-item.sm-navitem-active{
+      sm-icon
+      ,.sm-nav-menu-item-label{
+        color: sm-color($background,sidemenu);
+      }
+    }
+    .sm-nav-menu .sm-wave-menu:not(.sm-navmenu-open) {
+      sm-icon
+      ,.sm-nav-menu-item-label{
+        color: sm-color($primary);
+      }
+    }
+}
+
+@mixin  sm-nav-menu-typograpgy($config){
+    .sm-nav-menu-item-label {
+        font: {
+            family: sm-get-font-family($config, title);
+            size: sm-get-font-size($config, title);
+            weight: sm-get-font-weight($config, title);
+        }
+    }
+}

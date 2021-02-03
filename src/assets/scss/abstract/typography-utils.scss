@@ -1,0 +1,20 @@
+@function _sm-get-type-value($config, $prop, $name) {
+    @return map-get(map-get($config, $prop), $name);
+}
+
+
+@function sm-get-font-size($config, $prop) {
+    @return _sm-get-type-value($config, $prop, font-size);
+}
+
+@function sm-get-font-weight($config, $prop) {
+    @return _sm-get-type-value($config,$prop ,font-weight);
+}
+
+@function sm-get-font-family($config, $prop: null) {
+    $font-family: map-get($config, font-family);
+    @if($prop != null) {
+        $font-family: _sm-get-type-value($config, $prop, font-family);
+    }
+    @return if(type-of($font-family) == string, unquote($font-family), $font-family);
+}

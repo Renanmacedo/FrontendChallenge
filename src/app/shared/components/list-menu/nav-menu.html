@@ -1,0 +1,24 @@
+<!-- [class.sm-nav-submenu]="_hasItems(item)" -->
+<ng-container *ngFor="let item of items; index as index;">
+  <a sm-nav-menu-item
+    (click)="expand(item, index)"
+    [class.sm-wave-menu]="_hasItems(item) && checkAnyRouterActive(item)"
+    [class.sm-navitem-active]="checkActive(item.url)"
+    [class.sm-navmenu-open]="_hasItems(item) && isExpanded(index)"
+  >
+      <sm-icon>{{item.icon}}</sm-icon>
+      <ng-container *ngIf="isMenuOpen || isHouver">
+          <span class="sm-nav-menu-item-label">{{item.label}}</span>
+          <sm-icon [@animateArrow]="isExpanded(index) ? 'expanded' : 'expand' " *ngIf="_hasItems(item)">keyboard_arrow_left</sm-icon>
+      </ng-container>
+  </a>
+  <div *ngIf="_hasItems(item) && isExpanded(index)" class="sm-nav-submenu" [@slideInOut]>
+      <sm-nav-menu
+          [sidemenu]="sidemenu"
+          [items]="item.children"
+          [navMenuLevel]="index"
+          [level]="index + 1"
+          [color]="_color">
+      </sm-nav-menu>
+  </div>
+</ng-container>

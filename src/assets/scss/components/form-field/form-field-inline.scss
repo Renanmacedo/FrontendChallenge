@@ -1,0 +1,15 @@
+
+$line-height: 1px !default;
+
+.sm-form-field-inline {
+
+    .sm-form-field-label {
+        transform: perspective(100px);
+    }
+
+    .sm-form-field-line {
+        height: $line-height;
+        border-top: solid $line-height;
+        bottom: 1.25rem;
+    }
+}

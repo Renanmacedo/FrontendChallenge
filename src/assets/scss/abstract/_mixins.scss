@@ -1,0 +1,67 @@
+
+
+@mixin border-table-base() {    
+    border-bottom-color: rgba(0,0,0,.12);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding: 0;
+}
+
+@mixin sm-flexbox($direction: row, $flex-align: center, $flex-justify: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $flex-align;
+    justify-content: $flex-justify;
+}
+
+@mixin absoluteFill($position) {
+    position: $position;
+    left: 0;
+    top:0;
+    bottom: 0;
+}
+@mixin font-size($size, $weight: normal){
+    font-size: $size;
+    font-weight: $weight;
+}
+
+@mixin xs {
+    @media only screen and (min-width: $screen-xs-min) and (max-width: $screen-sm-min){
+        @content;        
+    }
+}
+
+@mixin sm {
+    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-md-min){
+        @content;        
+    }
+}
+
+@mixin md {
+    @media only screen and (min-width: $screen-md-min)  and (max-width : $screen-lg-min) {
+        @content;        
+    }
+}
+
+@mixin lg {
+    @media  (min-width: $screen-lg-min) and (max-width: $screen-xl-min) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: $screen-xl-min) and (max-width: $screen-xxl-min){
+        @content;        
+    }
+}
+
+@mixin create-grid-media($breakpoint) {
+    
+    @if(map_get($breakpoint, min) == 0){
+        @content;
+    }@else {
+        @media screen and (min-width: map_get($breakpoint,min) * 1px) and (max-width: map_get($breakpoint, max) * 1px){
+            @content;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+
+
+.sm-toggle-switch-disbled {
+}
+.sm-toggle {
+	cursor: pointer;
+	display: inline-block;
+}
+.sm-toggle-switch {
+	display: inline-block;
+	
+	border-radius: 16px;
+	width: 40px;
+    height: 18px;
+	position: relative;
+	vertical-align: middle;
+    transition: background 0.25s;
+    margin-right: 4px;
+	&:before,
+	&:after {
+		content: "";
+	}
+	&:before {
+		display: block;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+		width: 14px;
+		height: 14px;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: left 0.25s;
+	}
+	.sm-toggle:hover &:before {
+		
+		box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+	}
+	.sm-toggle-checkbox:checked + & {
+		&:before {
+			left: 23px;
+		}
+	}
+	.sm-toggle-checkbox:disabled + & {		
+		opacity: .6;
+	}
+}
+.sm-toggle-checkbox {
+	position: absolute;
+	visibility: hidden;
+}
+.sm-toggle-label {
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}

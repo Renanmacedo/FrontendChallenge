@@ -1,0 +1,69 @@
+
+
+@mixin  sm-form-field-theme($theme) {
+
+
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme,  background);
+    $primary: map-get($theme, primary);
+    $sm-red: map-get($theme,sm-red);
+
+    .sm-form-field-inline .sm-form-field-line {
+        background-color: rgba(0,0,0,.42);
+    }
+    
+    .sm-disable-container {
+        .sm-form-field-wrapper {
+            .sm-form-field-flex {
+                .sm-form-field-outline-section {
+                    background: #e4e7ea !important;
+                }
+            }
+        }
+    }
+    .sm-form-field-outline.sm-disable-container {
+        .sm-form-field-outline-track {
+            color:  #e4e7ea !important;
+        }
+    }
+    .sm-form-field-outline {
+
+       .sm-form-field-outline-track {
+           color: sm-color($primary);
+       }
+
+       &:not(.sm-form-field-disabled) .sm-form-field-flex:hover { 
+   
+        &.sm-form-field-outline-section {
+           opacity: 0;
+        }
+        &.sm-form-field-outline-track {
+           opacity: 1;
+        }
+       }
+       .sm-form-field-focused.sm-form-field-outline .sm-form-field-outline-section {
+           color: sm-color($primary)
+       }
+    }
+    .sm-form-field-invalid.sm-form-field-outline.sm-form-field-invalid {
+        .sm-form-field-outline-track {
+            color: sm-color($sm-red);
+        }
+    }
+    /**
+    * state erro match
+    */
+    .sm-form-field-outline.sm-form-field-invalid {
+        .sm-form-field-outline-section {
+            opacity: 1;
+            color: sm-color($sm-red);
+        }
+        .sm-form-field-label-wrapper {
+            color: sm-color($sm-red);
+        }
+    }
+    .sm-form-field-error {
+        color: sm-color($sm-red);
+    }
+    
+}

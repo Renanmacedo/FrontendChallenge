@@ -1,0 +1,30 @@
+
+
+
+@mixin  sm-card-theme($theme) {
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    .sm-card {
+        background: sm-color($background, card);
+    }
+}
+@mixin sm-card-typograpgy($config) {
+
+    .sm-card {
+        font-family: sm-get-font-family($config);
+    }
+    .sm-card-title {
+        font: {
+            family: sm-get-font-family($config);
+            size: sm-get-font-size($config, title);
+            weight: sm-get-font-weight($config, title);
+        }
+    }
+    .sm-card-subtitle{ 
+        font: {
+            family: sm-get-font-family($config);
+            size: sm-get-font-size($config, body-1);
+            weight: sm-get-font-weight($config, body-1);
+        }
+    }
+}

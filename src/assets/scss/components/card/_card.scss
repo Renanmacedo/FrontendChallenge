@@ -1,0 +1,62 @@
+
+$sm-card-padding: 16px !default;
+$sm-card-border-radius: 4px !default;
+$sm-card-header-size: 40px !default;
+
+%sm-card-content-title-base {
+    display: block;
+    margin-bottom: 8px;
+
+}
+%sm-card-section-base {
+
+    display: block;
+    margin-bottom: 16px;
+}
+.sm-card {
+
+    @include sm-card-elevation;
+    border-radius: $sm-card-border-radius;
+    display: block;
+    position: relative;
+    .sm-card-divider-horizontal {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        [dir="rtl"] & {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+// HEADER STYLE
+.sm-card-header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    .sm-card-title {
+        @extend %sm-card-content-title-base;
+    }
+
+    .sm-card-subtitle {
+        @extend %sm-card-section-base;
+        margin: .2rem 0;
+    }
+}
+.sm-card-header-text {
+    display: flex;
+    flex-direction: column;
+    margin: 0 $sm-card-padding;
+}
+.sm-card-body {
+    padding: $sm-card-padding - 10px;
+    display: block;
+}
+
+.sm-card-fotter {
+    margin-left: -4px;
+    margin-right: -4px;
+    display: block;
+}
+

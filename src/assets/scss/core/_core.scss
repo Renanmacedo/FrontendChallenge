@@ -1,0 +1,33 @@
+
+
+@mixin  sm-core-typography($config: null) {
+
+    @if($config == null) {
+        $config: sm-typography-config();
+    }
+
+    @include sm-card-typograpgy($config);
+    @include sm-nav-menu-typograpgy($config);
+    @include sm-button-typography($config);
+    @include sm-menu-typography($config);
+    @include sm-nav-menu-typograpgy($config);    
+    @include sm-fields-typography($config);
+}
+
+@mixin sm-core-theme($theme) {
+
+    @include sm-nav-menu-theme($theme);
+    @include sm-sidemenu-theme($theme);
+    @include sm-button-theme($theme);
+    @include sm-card-theme($theme);
+    @include sm-header-theme($theme);
+    
+    @include sm-form-field-theme($theme);
+    
+    
+    @include sm-ripple-theme($theme);
+    @include toggle-switch-theme($theme);
+    
+    @include sm-menu-theme($theme);
+    
+}

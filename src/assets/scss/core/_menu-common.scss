@@ -1,0 +1,36 @@
+
+
+
+$sm-menu-min-width-base: 112px !default;
+
+$sm-menu-max-width-base: 280px !default;
+
+$sm-menu-item-height-base: 48px !default;
+
+@mixin menu-base() {
+    min-width: $sm-menu-min-width-base;
+    max-width: $sm-menu-max-width-base;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; // mobile scroll touch
+}
+
+@mixin menu-item-base() {
+
+    height: $sm-menu-item-height-base;
+    line-height: $sm-menu-item-height-base;
+    display: block;
+    max-width: 100%;
+    text-align: left;
+    text-decoration: none;
+    outline: 0;
+    &[disabled] 
+    {
+        cursor: default;
+    }
+    padding: 0 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}

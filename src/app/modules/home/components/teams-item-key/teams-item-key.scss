@@ -1,0 +1,143 @@
+
+@import "~assets/scss/theme/_pallete.scss";
+
+$height-item:  46px;
+%template-item  {
+    margin: .28em .28em;
+    position: relative;
+}
+
+%template-container {
+    width: 230px;
+    position: relative;
+    box-sizing: border-box;
+}
+.sm-team-container {
+    @extend %template-container;
+}
+.team-item {
+
+   @extend %template-item;
+   background: #fff;
+   border-radius: 4px;
+   height: $height-item;
+   border: 1px solid #ececec;
+   .team-item-title {
+       margin-left: 10px;
+       margin-right: 8px;
+   }
+
+   .end-arrow {
+       height: $height-item;
+       background: map-get($sm-blue-aqua, 600);
+       width: $height-item;
+       color: #fff;
+       font-weight: bold;
+       font-size: 16px;
+       flex: .3 !important;
+       
+   }
+}
+
+.sm-team-container .team-item {
+    &::after {
+        content: "";
+    }
+
+    &:last-child {
+        &::before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ececec;
+            left: 100%;
+            top: 19%;
+            border-top: transparent;
+            border-left: transparent;
+            width: 59px;
+            height: 25px;
+        }
+    }
+    &:not(:last-child) {
+       
+        &::before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ececec;
+            left: 100%;
+            top: 35%;
+            border-left: transparent;
+            border-bottom: transparent;
+            width: 58px;
+            height: 14px;
+        }
+    }
+}
+
+
+.sm-team-container .last-qualification-key .team-item {
+
+    margin-bottom: 64px;
+    &:last-child { margin-bottom: 0; }
+
+    &:not(.last-item-key) {
+        &::before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ececec;
+            left: 100%;
+            top: 20%;
+            border-left: transparent;
+            border-bottom: transparent;
+            width: 63px;
+            height: 52px;
+        }
+    }
+    &.last-item-key {
+        &::before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ececec;
+            left: 100%;
+            top: -26%;
+            border-top: transparent;
+            border-left: transparent;
+            width: 67px;
+            height: 45px;
+        }
+    }
+
+}
+.sm-team-container .last-round-key .team-item {
+
+    margin-bottom: 180px;
+
+    &:last-child { margin-bottom: 0;}
+    &::before {
+        content: "";
+        position: absolute;
+        border: 1px solid #ececec;
+        left: 100%;
+        top: 36%;
+        border-left: transparent;
+        border-bottom: transparent;
+        width: 58px;
+        height: 95px;
+    }
+    &:last-child {
+        &::before {
+            content: "";
+            position: absolute;
+            border: 1px solid #ececec;
+            left: 100%;
+            top: -175%;
+            border-top: transparent;
+            border-left: transparent;
+            width: 59px;
+            height: 110px;
+        }
+    }
+}
+
+.champion-item-key {
+    overflow: hidden;
+}

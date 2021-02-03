@@ -1,0 +1,140 @@
+@import "../theme/pallete";
+$base-margins: 16px;
+$margin-lf-rh-tp-search: 30px;
+$margin-bt-search: 50px;
+
+$margins: (
+    '-0': 0px
+    ,'-1': 16px
+    ,'-2': 32px
+    ,'-3': 48px
+    ,'-4': 64px
+    ,'-30': 30px
+    ,'-50': 50px
+    , '-40': 40px
+);
+$sizes : (
+    xs: (
+        height: 100px,
+     width: 100px
+    ),
+    sm: (
+     height: 150px,
+     width: 150px
+    ),
+    md: (
+     height: 250px,
+     width: 250px
+    ),
+    xl: (
+        height: 350px,
+        width:  350px
+    )
+);
+
+.sm-flex {
+    display: flex !important;
+    flex: 1;
+    &-column {
+        flex-direction: column;
+    }
+}
+
+.sm-justify{
+    &-center{
+        justify-content: center !important;
+    }
+    &-end {
+        justify-content: flex-end !important;
+    }
+    &-between {
+        justify-content: space-between;
+    }
+    &-around {
+        justify-content: space-around;
+    }
+}
+.sm-align-center {
+    align-items: center !important;
+}
+.sm-width-auto {
+    width: auto !important;
+}
+
+@each $modifier, $margin in $margins {
+    .sm-margin#{$modifier} {
+        margin: $margin !important;
+    }
+    .sm-margin-top#{$modifier} {
+        margin-top: $margin !important;
+    }
+    .sm-margin-bottom#{$modifier} {
+        margin-bottom: $margin !important;
+    }
+    .sm-margin-left#{$modifier} {
+        margin-left: $margin !important;
+    }
+    .sm-margin-right#{$modifier} {
+        margin-right: $margin !important;
+    }
+}
+@each $modifier, $size in $sizes {
+    .sm-image-#{$modifier} {
+        height: map_get($size, height);
+        width: map_get($size, width);
+    }
+};
+.sm-border-0 {
+    border: none !important;
+}
+%tempalteTitle {
+    font-size: 1.4em;
+    font-weight: 800;
+}
+.text-description-label {
+    color: map-get($sm-gray, custom);
+    @extend %tempalteTitle;
+}
+.text-description-sub-label {
+    font-size: 14px;
+    color: map-get($sm-gray, custom-2);
+}
+.text-description-container {
+    display: block;
+    position: relative;
+    margin: 25px 0;
+}
+
+.text-disabled {
+    color: map-get($sm-gray, 400);
+}
+
+.sm-text-title-primary {
+    color: map-get($sm-orange, 500);
+    @extend %tempalteTitle;
+}
+.sm-text-subtitle{
+    font-weight:700;
+    font-size: 14px;
+}
+.sm-text-primary {
+    color: map-get($sm-orange, 500);
+}
+
+
+.sm-overflow-ellipse {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.sm-text-ellipse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sm-divider {
+    width: 100%;
+    background: map-get($sm-gray, 200);
+    height: .01em;
+    display: block;
+    position: relative;
+}

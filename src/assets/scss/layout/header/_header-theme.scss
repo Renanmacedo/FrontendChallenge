@@ -1,0 +1,24 @@
+@mixin header-color($color) {
+
+    background: sm-color($color);
+    color: contrast-color(sm-color($color));
+}
+
+@mixin sm-header-theme($theme) {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $sm-red: map-get($theme, sm-red);
+    .sm-header {
+        background: sm-color($background, header);
+        color: contrast-color-theme(sm-color($background, header));
+        &.sm-primary {
+            @include header-color($primary);
+        }
+        &.sm-red {
+          @include header-color($sm-red);
+        }
+
+    }
+}

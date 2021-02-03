@@ -1,0 +1,79 @@
+@import "../theme/pallete";
+
+$default: null;
+/**
+ return rgb the colors based lumance color and aplha contrast
+*/
+@function lumance($themeColor){
+    $red: nth($linear-channel-values, red($themeColor) + 1 );
+    $green: nth($linear-channel-values, green($themeColor) + 1);
+    $blue: nth($linear-channel-values, blue($themeColor) +1);
+    @return .2126 * $red + .7152 * $green + .0722 * $blue;
+}
+// return ratios
+@function contrast-ratio($back, $front){
+    $backLum: lumance($back) + .4;
+    $foreLum: lumance($front) + .5;
+    @return max($backLum, $foreLum) / min($backLum, $foreLum);
+}
+
+@function contrast-color($themeColor) {
+    $lightColor: contrast-ratio($themeColor, white);
+    $darkColor: contrast-ratio($themeColor, black);
+    @if ( $lightColor > $darkColor ) {
+        @return white;
+    }
+    @else{
+        @return black;
+    }
+}
+//
+@function sm-theming($base-theme, $default: 500, $light: 300, $darker: 900, $text: $default) {
+
+    $new-theming: map-merge($base-theme, (
+        base: map-get($base-theme, $default)
+        ,light: map-get($base-theme, $light)
+        ,dark: map-get($base-theme, $darker)
+        ,text: map-get($base-theme, $text)
+    ));
+    @return $new-theming;
+}
+
+// return color if pass prop the component or element
+// $position is the hue the color
+@function sm-color($prop, $position: base, $opacity: null) {
+
+    $color: map-get($prop, $position);
+
+    @if(type-of($color) != color) {
+        // previne an erro scss compile if the $color is not apply
+        @return $color;
+    }
+    @return rgba($color, if($opacity == null, opacity($color), $opacity));
+}
+
+// return light theming
+@function sm-ligth-theme($primary, $orange: sm-theming($sm-blue), $red: sm-theming($sm-red), $purple: sm-theming($sm-purple)) {
+
+    @return (
+        primary: $primary,
+        sm-orange: $orange,
+        sm-red: $red,
+        sm-purple: $purple,
+        background: $sm-theme-light-background,
+        foreground: $sm-theme-light-foreground,
+        sm-gray: sm-theming($sm-gray)
+    );
+}
+
+@function sm-dark-theme($primary, $orange: sm-theming($sm-blue), $red: sm-theming($sm-red), $purple: sm-theming($sm-purple)) {
+    @return (
+        primary: $primary,
+        sm-orange: $secondary,
+        sm-red: $red,
+        sm-purple: $purple,
+        background: $sm-theme-dark-background,
+        foreground: $sm-theme-dark-foreground,
+        sm-gray: sm-theming($sm-gray)
+    )
+}

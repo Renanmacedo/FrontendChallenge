@@ -1,0 +1,44 @@
+<div class="sm-form-field-wrapper">
+    <div class="sm-form-field-flex">
+        <ng-container *ngIf="view == 'outline'">
+            <div class="sm-form-field-outline-section">
+                <div class="sm-form-field-outline-section-start"></div>
+                <div class="sm-form-field-outline-section-middle"></div>
+                <div class="sm-form-field-outline-section-end"></div>
+            </div>
+            <div  class="sm-form-field-outline-section sm-form-field-outline-track">
+                <div class="sm-form-field-outline-section-start"></div>
+                <div class="sm-form-field-outline-section-middle"></div>
+                <div class="sm-form-field-outline-section-end"></div>
+            </div>
+        </ng-container>
+        <div class="sm-form-field-inside" #container>
+
+            <ng-content></ng-content>
+            <span class="sm-form-field-label-wrapper" *ngIf="hasLabel()">
+                <label [for]="uniqueId" 
+                [class.sm-form-field-empty]="_control.empty"
+                class="sm-form-field-label"
+                >
+                    <ng-container *ngIf="hasLabel()">
+                        <ng-content select="sm-label, [SmLabel]"></ng-content>
+                    </ng-container>
+                </label>
+            </span>
+            
+        </div>
+        <!-- <div class="sm-button-right-input">
+            <ng-content select="[SmFloatButton], sm-float-buttom"></ng-content>
+        </div> -->
+
+        <div class="sm-form-field-line" #line *ngIf="view != 'outline'">
+            <span class="sm-form-field-ripple"></span>
+        </div>
+    </div>
+    <div class="sm-form-field-wrapper-error">
+        <div *ngIf="getStateMessage()" class="sm-error-content" [@errorMessageAnimation]="_stateMessageError">
+            <ng-content select="sm-error,[sm-error]"></ng-content>
+        </div>
+    </div>
+
+</div>

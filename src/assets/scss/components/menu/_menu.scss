@@ -1,0 +1,44 @@
+@import '../../core/menu-common';
+
+$sm-menu-padding: 8px !default;
+
+$sm-menu-border-radius: 4px !default;
+.sm-menu-panel {
+    
+    @include menu-base();
+
+    /** calculate max height */
+
+    max-height: calc(100vh - 48px);
+    border-radius: $sm-menu-border-radius;
+
+    outline: 0;
+
+    min-height: 64px;
+
+    background: #fff;
+    @include sm-elevation;
+}
+
+.sm-menu-content:not(:empty) {
+    padding: $sm-menu-padding 0;
+    position: relative;
+    width: auto;
+}
+.sm-menu-item {
+    @include menu-item-base;
+    position: relative;
+    &:focus
+    ,&:active {
+        outline: 0;
+        border: none;
+    }
+    sm-icon {
+        vertical-align: middle;
+        margin-right: 15px;
+    }
+}
+button.sm-menu-item {
+
+    width: 100%;
+}

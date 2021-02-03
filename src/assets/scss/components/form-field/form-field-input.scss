@@ -1,0 +1,30 @@
+.sm-input-fill-element {
+    border: 0;
+    background: 0 0;
+    color: currentColor;
+    max-width: 100%;
+    width: 100%;
+    vertical-align: bottom;
+    font-size: inherit;
+}
+.sm-input-fill-element.sm-input-disable {
+    pointer-events: none;
+}
+.sm-input-fill-element {
+    &:focus
+    ,:active {
+        outline: 0;
+        border: none;
+    }
+    color: #000;
+}
+input.sm-input-fill-element {
+    padding: 0 5px;
+}
+textarea.sm-input-fill-element {
+    resize: vertical;
+    overflow: auto;
+    padding: 2px 5px;
+    margin: -2px 0;
+
+}

@@ -1,0 +1,64 @@
+
+.sm-form-field-outline {
+    
+    .sm-form-field-outline-section {
+        display: flex;
+        position: absolute;
+        top: .25em;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: rgba(0,0,0,.12);
+        pointer-events: none;
+        background: #fff;
+        .sm-form-field-outline-section-start
+        ,.sm-form-field-outline-section-end {
+            border: 1px solid currentColor;
+            min-width: 5px;
+        }
+        .sm-form-field-outline-section-start {
+            border-radius:  5px 0 0 5px;
+            border-right-style: none;
+
+        }
+        .sm-form-field-outline-section-middle {
+            border-radius: 0.0001px;
+            border: 1px solid currentColor;
+            border-left-style: none;
+            border-right-style: none;
+
+        }
+        .sm-form-field-outline-section-end {
+            border-radius: 0 5px 5px 0;
+            border-left-style: none;
+            flex-grow: 1;
+
+        }
+    }
+    .sm-form-field-outline-track {
+        opacity: 0;
+        .sm-form-field-outline-section-start
+        ,.sm-form-field-outline-section-middle
+        ,.sm-form-field-outline-section-end {
+            border-width: 2px;
+        }
+    }
+
+    &:not(.sm-form-field-disabled) .sm-form-field-flex:hover { 
+
+        &.sm-form-field-outline-section {
+            opacity: 0;
+        }
+        & .sm-form-field-outline-track {
+            opacity: 1;
+        }
+    }
+}
+.sm-form-field-focused.sm-form-field-outline .sm-form-field-outline-section {
+
+    & .sm-form-field-outline-section-start
+    ,.sm-form-field-outline-section-middle
+    ,.sm-form-field-outline-section-end{
+        border-width: 2px;
+    }
+}

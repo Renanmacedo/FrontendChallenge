@@ -1,0 +1,33 @@
+
+.sm-header-fixed {
+    display: flex;
+    flex-grow: 1;
+    position: fixed
+}
+
+.sm-header {
+    height: $header-height;
+    width: 100%;
+    
+}
+.sm-header-row {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    padding: 0 16px;
+
+    .sm-sidemenu-button {
+        @include xs() {
+            display: block;
+        }
+        @include sm() {
+            display: block;
+        }
+        @include md() {
+            display: block;
+        }
+        @include lg() {
+            display: block;
+        }
+    }
+}

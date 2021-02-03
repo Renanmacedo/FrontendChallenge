@@ -1,0 +1,112 @@
+
+
+<sm-card>
+    <sm-card-header >
+        <div class="sm-flex sm-justify-between">
+            <p>Lista de Times</p>
+            
+            <button sm-button sm-link-button color="primary" [routerLink]="['/management/add']"> Criar Torneio</button>
+        </div>
+    </sm-card-header>
+    <sm-card-body>
+
+        <ng-container *ngIf="!hasTeams">
+
+            <div class="sm-flex sm-justify-center">
+                <p class="sm-text-header-title">Não há times cadastrados. Por favor, crie um torneio e adicione os times</p>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="hasTeams">
+        <div class="sm-margin-bottom-1 sm-margin-top-1">
+            <p class="sm-text-header-title">Qualificatorias</p>
+        </div>
+        <ng-container *ngFor="let team of tournament.teams; index as parent">
+            <div class="sm-flex sm-flex-column">
+                <div class="sm-grid-row sm-align-center">
+                    
+                    <ng-container *ngFor="let key of team; index as i;">
+                        <div class="sm-col-sm-2 sm-col-md-2 sm-col-lg-2 sm-col-xl-2">
+                            <sm-form-field view="outline">
+                                <sm-label>Pontos</sm-label>
+                                <input  [disabled]="hasQualification" SmInput name="" [value]="key.points" (input)="key.points = $event.target.value"/>
+                            </sm-form-field>
+                        </div>
+                        <div class="sm-col-sm-4 sm-col-md-4 sm-col-lg-4 sm-col-xl-4">
+                            <toggle-switch [disabled]="hasQualification" [checked]="key.winner" (toogleChange)="onWinner($event,key, i, parent)">
+                                {{key.name}}
+                            </toggle-switch> 
+                        </div>                   
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="sm-flex sm-justify-center sm-margin-top-2 sm-margin-bottom-2" *ngIf="!hasQualification">
+            <button sm-button color="primary" (click)="saveQualification()" [disabled]="disableSaveQualification">
+                Salvar resultado
+            </button>
+        </div>
+    </ng-container>
+        <ng-container *ngIf="hasQualification">
+        <div class="sm-margin-bottom-1 sm-margin-top-1">
+            <p class="sm-text-header-title">Semi Final</p>
+        </div>
+        <ng-container *ngFor="let team of tournament.qualification; index as parent">
+            <div class="sm-flex sm-flex-column">
+                <div class="sm-grid-row sm-align-center">
+                    <ng-container *ngFor="let key of team; index as i;">
+                        <div class="sm-col-sm-2 sm-col-md-2 sm-col-lg-2 sm-col-xl-2">
+                            <sm-form-field view="outline">
+                                <sm-label>Pontos</sm-label>
+                                <input [disabled]="hasSemi" SmInput name="" [value]="key.points" (input)="key.points = $event.target.value"/>
+                            </sm-form-field>
+                        </div>
+                        <div class="sm-col-sm-4 sm-col-md-4 sm-col-lg-4 sm-col-xl-4">
+                            <toggle-switch [disabled]="hasSemi" [checked]="key.winner" (toogleChange)="onWinnerSemiFinal($event,key, i,parent)">
+                                {{key.name}}
+                            </toggle-switch> 
+                        </div>                   
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <div class="sm-flex sm-justify-center sm-margin-top-2 sm-margin-bottom-2" *ngIf="!hasSemi">
+            <button sm-button color="primary" (click)="saveSemi()" [disabled]="disabledSaveSemi">
+                Salvar resultado
+            </button>
+        </div>
+        </ng-container>
+        <ng-container *ngIf="hasSemi">
+        <div class="sm-margin-bottom-1 sm-margin-top-1">
+            <p class="sm-text-header-title">Final</p>
+        </div>
+        <ng-container *ngFor="let team of tournament.semiFinal; index as parent">
+            <div class="sm-flex sm-flex-column sm-align-center">
+                <div class="sm-grid-row sm-align-center">
+                    <ng-container *ngFor="let key of team; index as i;">
+                        <div class="sm-col-sm-2 sm-col-md-2 sm-col-lg-2 sm-col-xl-2">
+                            <sm-form-field view="outline">
+                                <sm-label>Pontos</sm-label>
+                                <input SmInput [disabled]="hasFinal" [value]="key.points" (input)="key.points = $event.target.value"/>
+                            </sm-form-field>
+                        </div>
+                        <div class="sm-col-sm-4 sm-col-md-4 sm-col-lg-4 sm-col-xl-4">
+                            <toggle-switch [disabled]="hasFinal" [checked]="key.winner" (toogleChange)="onChapion($event,key, i,parent)">
+                                {{key.name}}
+                            </toggle-switch> 
+                        </div> 
+                        
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+        <div class="sm-flex sm-justify-center sm-margin-top-2 sm-margin-bottom-2" *ngIf="!hasFinal">
+            <button sm-button color="primary" (click)="saveChampion()" [disabled]="disabledSaveFinal" >
+                Salvar resultado
+            </button>
+        </div>
+        </ng-container>
+       
+    </sm-card-body>
+</sm-card>
+<router-outlet></router-outlet>

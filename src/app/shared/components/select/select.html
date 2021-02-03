@@ -1,0 +1,39 @@
+<div cdkOverlayOrigin
+    class="sm-select-trigger" 
+    aria-hidden="true" 
+    #origin="cdkOverlayOrigin" #boxElement
+    (click)="toggle()">
+    <div class="sm-select-value" [ngSwitch]="empty">
+        <span class="sm-select-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
+        <span class="sm-select-value-text" *ngSwitchCase="false">
+          <span>{{viewValue || '\u00A0'}}</span>
+        </span>
+    </div>
+
+    <div class="sm-select-arrow-wrapper">
+        <div class="sm-select-arrow"></div>
+    </div>
+</div>
+
+<ng-template
+    cdkConnectedOverlay
+    cdkConnectedOverlayLockPosition
+    cdkConnectedOverlayHasBackdrop
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+    [cdkConnectedOverlayScrollStrategy]="_scrollStrategy"
+    [cdkConnectedOverlayOrigin]="origin"
+    [cdkConnectedOverlayOpen]="panelOpen"
+    [cdkConnectedOverlayPositions]="_getPosition()"
+    [cdkConnectedOverlayMinWidth]="_triggerRect?.width"
+    [cdkConnectedOverlayOffsetY]="_offsetY"
+    (backdropClick)="close()"
+    (attach)="_onAttached()"
+    (detach)="close()">
+  <div class="sm-select-panel-wrap">
+    <div
+      #panel
+      class="sm-select-panel">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>

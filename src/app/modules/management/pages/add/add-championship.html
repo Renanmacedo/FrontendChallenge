@@ -1,0 +1,60 @@
+<sm-card>
+    <sm-card-header [textVisible]="true">
+        <sm-card-title>
+            <div class="sm-flex sm-align-center">
+                <button sm-button sm-icon-button [routerLink]="['/management/search']">
+                    <sm-icon>keyboard_arrow_left</sm-icon>
+                </button>
+                {{title}}
+            </div>
+        </sm-card-title>
+    </sm-card-header>
+    <sm-card-body>
+        <!-- render template -->
+        <ng-container [ngTemplateOutlet]="championship"></ng-container>
+    </sm-card-body>
+</sm-card>
+
+<ng-template #championship>
+    <div class="sm-grid">
+
+        <form [formGroup]="championshipForm">
+            <div class="sm-grid-row">
+                <div class="sm-col-xs-12 sm-col-sm-6 sm-col-md-4 sm-col-lg-4 sm-col-xl-4">
+                    <sm-form-field view="outline">
+                        <sm-label>Nome do Campaeonato</sm-label>
+                        <input SmInput formControlName="name" placeholder="Nome do Campaeonato" />
+                    </sm-form-field>
+                </div>
+            </div>
+            <p class="sm-text-header-title sm-margin-left-1">Times</p>
+            <ng-container formArrayName="teams">
+                <div class="sm-grid-row">
+                <ng-container *ngFor="let team of teams.controls; index as i">
+                    <ng-container [formGroupName]="i">
+                            <div class="sm-col-xs-12 sm-col-sm-5 sm-col-md-5 sm-col-lg-6 sm-col-xl-5">
+                                <sm-form-field view="outline">
+                                    <sm-label>Nome do Time</sm-label>
+                                    <input SmInput formControlName="firstTeam" placeholder="Nome do Time" />
+                                </sm-form-field>
+                            </div>
+                            <div class="sm-margin-top-1">x</div>
+                            <div class="sm-col-xs-12 sm-col-sm-5 sm-col-md-5 sm-col-lg-5 sm-col-xl-5">
+                                <sm-form-field view="outline">
+                                    <sm-label>Nome do Time</sm-label>
+                                    <input SmInput formControlName="secondTeam" placeholder="Nome do Time" />
+                                </sm-form-field>
+                            </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            </ng-container>
+
+            <div class="sm-flex sm-align-center sm-justify-center">
+                <button sm-button color="primary" [disabled]="!championshipForm.valid" (click)="createTournament()">
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+</ng-template>

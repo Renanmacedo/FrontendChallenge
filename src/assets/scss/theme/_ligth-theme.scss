@@ -1,0 +1,8 @@
+@import "../core/core";
+@import "./pallete";
+
+
+$theme: sm-ligth-theme(sm-theming($sm-orange));
+
+// include theme
+@include sm-core-theme($theme);

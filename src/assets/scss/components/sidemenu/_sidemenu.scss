@@ -1,0 +1,120 @@
+
+$sidemenu-width:230px !default;
+
+.sm-sidemenu-aside {
+    z-index: 1050;
+    visibility: visible;
+    @include absoluteFill(fixed);
+
+}
+.sm-sidemenu-inner {
+    height: 100%;
+
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    overflow-y: scroll;
+    transition: transform .6s linear;
+    box-shadow:  10px 0 8px -6px rgba(53, 65, 54, 0.1);
+    .sm-side-content {
+        @include sm-flexbox(column, center, center);
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+}
+.sm-sidemenu-inner-wrapper {
+    display: block;
+    margin-bottom: 70px;
+    .sm-sidemenu-items {
+        display: flex;
+        flex-direction: column;
+        margin: 1px 0;
+        transform: translate3d(0px,0px,0px);
+        transition: all .8s ease 0s;
+        flex: 1;
+    }
+}
+.sm-sidemenu-container {
+
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    left: 0;
+    top: 65px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sm-sidemenu-content {
+    display: block;
+    position: relative;
+    max-height: 100%;
+    height: 900px;
+    overflow: auto;
+    z-index: 1;
+    padding: 16px;
+    @include xs() {
+        margin-left: 0;
+    }
+    @include sm() {
+        margin-left: 0;
+    }
+    @include md() {
+        margin-left: 230px;
+    }
+    @include lg() {
+        margin-left: 230px;
+    }
+}
+.sm-sidemenu-close-mobile {
+    transform: translateX(-280px);
+    animation: transform .6s linear;
+    transition: all .6s ease 0s;
+}
+.sm-sidemenu-open-mobile {
+    transform: translateX(0px);
+    animation: transform .6s linear;
+    transition: all .6s ease 0s;
+}
+.sm-sidemenu-open {
+    width: $sidemenu-width;
+    transition: width .9s ease;
+}
+.sm-backdrop-sidemenu {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:0;
+  display: block;
+}
+.sm-sidemenu-aside.sm-sidemenu-animation-entersm-sidemenu-open{
+    width: $sidemenu-width;
+    transition: width .5s ease;
+}
+
+.sm-sidemenu-aside.sm-sidemenu-animation-out.sm-sidemenu-close {
+    width: 65px;
+    transition: width .5s ease;
+}
+.sm-sidmenu-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffff;
+    width: 100%;
+    padding: 5px;
+    line-height: 1.5em;
+}

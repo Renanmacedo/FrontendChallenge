@@ -1,0 +1,180 @@
+
+$sm-button-opacity: .1;
+
+@mixin sm-button-theme($theme) {
+
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+
+    .sm-button  {
+      background-color: sm-color($background, card);
+      .sm-wrapper-button-label {
+        color: contrast-color(sm-color($background, card));
+      }
+
+      .sm-ripple-element {
+        background-color: currentColor;
+        opacity: .1;
+      }
+      @include button-color($theme);
+      &:disabled {
+        color: sm-color($background, disabled-button);
+      }
+    }
+
+    .sm-button.sm-icon-button {
+      background-color: transparent;
+      @include button-icon-color($theme);
+    }
+    .sm-button.sm-round-button {
+      @include button-round-color($theme);
+    }
+    .sm-button.sm-link-button {
+      background-color: transparent;
+      @include button-link-color($theme);
+    }
+    .sm-button:not(.sm-link-button):active, .sm-button:not(.dhamra-link-button)focus {
+      outline: 0;
+      @include button-color($theme);
+    }
+}
+@mixin button-icon-color($theme) {
+  $primary: map-get($theme, primary);
+  $yellow: map-get($theme, primary);
+  $sm-red: map-get($theme, sm-red);
+  $sm-purple: map-get($theme, sm-purple);
+
+  &.sm-primary {
+    .sm-ripple-element {
+      background-color: sm-color($primary, 200);
+      opacity: .4;
+    }
+    .sm-wrapper-button-label {
+      color: sm-color($primary);
+    }
+  }
+  &.sm-red {
+    .sm-ripple-element {
+      background-color: sm-color($sm-red, 200);
+      opacity: .4;
+    }
+    .sm-wrapper-button-label {
+      color: sm-color($sm-red);
+    }
+  }
+  &.sm-purple {
+    .sm-ripple-element {
+      background-color: sm-color($sm-purple, 200);
+      opacity: .4;
+    }
+    .sm-wrapper-button-label {
+      color: sm-color($sm-purple);
+    }
+  }
+  &.sm-yellow {
+    .sm-ripple-element {
+      background-color: sm-color($yellow, 200);
+      opacity: .4;
+    }
+    .sm-wrapper-button-label {
+      color: sm-color($yellow)
+    }
+  }
+}
+@mixin button-link-color($theme) {
+  $primary: map-get($theme, primary);
+  $yellow: map-get($theme, secondary);
+  $sm-red: map-get($theme, sm-red);
+  $sm-purple: map-get($theme, sm-purple);
+
+  &.sm-primary {
+    .sm-wrapper-button-label {
+      color: sm-color($primary);
+    }
+  }
+  &.sm-red {
+    .sm-wrapper-button-label {
+      color: sm-color($sm-red);
+    }
+  }
+  &.sm-purple {
+    .sm-wrapper-button-label {
+      color: sm-color($sm-purple);
+    }
+  }
+  &.sm-secondary {
+    .sm-wrapper-button-label {
+      color: sm-color($primary);
+    }
+  }
+  &.sm-primary .sm-ripple-element {
+    background-color: sm-color($primary, 100);
+    opacity: .4;
+  }
+  &.sm-red .sm-ripple-element {
+    background-color: sm-color($sm-red, 100);
+    opacity: .4;
+  }
+  &.sm-purple .sm-ripple-element {
+    background-color: sm-color($sm-purple, 100);
+    opacity: .4;
+  }
+}
+@mixin button-color($theme) {
+
+  $primary: map-get($theme, primary);
+  $yellow: map-get($theme, primary);
+  $sm-red: map-get($theme, sm-red);
+  $sm-purple: map-get($theme, sm-purple);
+
+  &.sm-primary {
+    background-color: sm-color($primary);
+    .sm-wrapper-button-label {
+      color: contrast-color(sm-color($primary));
+    }
+  }
+  &.sm-red {
+    background-color: sm-color($sm-red);
+    .sm-wrapper-button-label {
+      color: contrast-color(sm-color($sm-red));
+    }
+  }
+  &.sm-purple {
+    background-color: sm-color($sm-purple);
+    .sm-wrapper-button-label {
+      color: contrast-color(sm-color($sm-purple));
+    }
+  }
+
+  &.sm-primary .sm-ripple-element {
+    background-color: sm-color($primary, 100);
+    opacity: .4;
+  }
+  &.sm-red .sm-ripple-element {
+    background-color: sm-color($sm-red, 100);
+    opacity: .4;
+  }
+  &.sm-purple .sm-ripple-element {
+    background-color: sm-color($sm-purple, 100);
+    opacity: .4;
+  }
+}
+@mixin button-round-color($theme) {
+  $primary: map-get($theme, primary);
+  $gray: map-get($theme,sm-gray);
+
+  &.sm-primary {
+    border: 1px solid sm-color($gray);
+  }
+}
+@mixin sm-button-typography($config) {
+
+    .sm-button {
+        font: {
+            family: sm-get-font-family($config, button);
+            size: sm-get-font-size($config, button);
+            weight: sm-get-font-weight($config, button);
+        }
+    }
+}
